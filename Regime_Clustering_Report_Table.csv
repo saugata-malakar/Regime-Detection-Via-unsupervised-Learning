@@ -1,0 +1,34 @@
+Section,Content
+Introduction,"Introduction:
+- Briefly introduce the problem of regime detection in market behavior (e.g., financial markets, trading volumes).
+- State the goal of your project: to detect market regimes using unsupervised learning techniques such as K-Means clustering, and analyze regime transitions."
+Feature Engineering,"Feature Engineering:
+Custom Features:
+- Mid Price: The average of the best bid and best ask prices (mid_price = (best_bid + best_ask) / 2).
+- Spread: The difference between the best ask and best bid prices (spread = best_ask - best_bid).
+- Imbalance: Level of order book imbalance (calculated from bid/ask quantities).
+- Volatility: Features like volatility_2, volatility_3 are calculated using price returns over different time windows.
+- Cumulative Quantities: The cumulative bid and ask quantities over time (cum_bid_qty, cum_ask_qty).
+- Other features include vwap, microprice, log_return, etc."
+Clustering Approach,"Clustering Approach:
+- K-Means Clustering:
+  - A clustering algorithm used to segment the data into distinct regimes. Here, 3 clusters are identified based on the normalized features from the depth data.
+  - KMeans algorithm was used, with n_clusters=3, meaning the data is segmented into three market regimes: for example, 'Trending', 'Mean-Reverting', and 'Volatile'.
+- Clustering Metric:
+  - The Silhouette Score (sil_score) is used to evaluate the clustering quality. A higher silhouette score suggests better-defined clusters."
+Clustering Results,"Clustering Results:
+- Silhouette Score: The silhouette score of the clustering was calculated to be X.XX, indicating that the clustering performed well (scores closer to +1 indicate well-separated clusters).
+- Cluster Centers: You can describe the cluster centers and what each cluster represents (e.g., one cluster may represent a 'Trending' market with high volatility, another could represent a 'Stable' market)."
+Regime Transition Analysis,"Regime Transition Analysis:
+- A Markov Chain model is used to analyze the transition probabilities between different regimes over time.
+  - The transition matrix shows how likely it is to move from one regime to another, which could be essential for predicting market behavior over time."
+Regime Insight,"Regime Insight:
+- Regime Visualization:
+  - A time series plot shows the regime labels over time, indicating how market behavior changes.
+  - The UMAP (or t-SNE) scatter plot in 2D space illustrates the separation of the clusters based on the selected features.
+- Insights:
+  - Regime transitions give insight into how the market shifts from one state to another, which could be useful for predictive modeling.
+  - The identification of specific clusters might be useful for understanding market behavior under different conditions (e.g., high liquidity, high volatility)."
+Conclusion,"Conclusion:
+- Summarize the results and insights gained from the clustering and transition analysis.
+- Discuss the potential applications of regime detection in market prediction, risk management, or algorithmic trading."
